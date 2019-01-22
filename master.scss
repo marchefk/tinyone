@@ -1,4 +1,5 @@
 @import '_base';
+@import '_mixins';
 
 // Navigation
 
@@ -41,7 +42,7 @@
 }
 
 .nav__link {
-  color: black;
+  color: #010101;
 }
 
 
@@ -92,7 +93,7 @@
 }
 
 .section__img {
-  @media (max-width: 699px) {
+  @media (max-width: 699px) { /////////////// max-width
     display: none;
   }
   @media (orientation: landscape) and (min-width: 700px) { ///////////to check
@@ -131,20 +132,19 @@
   color: #555555;
 }
 
+
+// Section: Features
+
 .section--theme-features {
   background-color: white;
 }
 
 .section__title--theme-features {
-  text-align: center;
-  margin: 0;
+  @include title-style;
 }
 
 .section__subtitle--theme-features {
-  text-align: center;
-  width: 80%;
-  margin: 10px auto 20px auto;
-  font-size: 20px;
+  @include subtitle-style;
 }
 
 .features {
@@ -190,7 +190,96 @@
   color: #898989;
 }
 
+
+// Section: Contact
+
 .section--theme-contact {
   background-color: #010101;
   color: white;
+}
+
+.section__title--theme-contact {
+  @include title-style;
+  color: #fcdb00;
+}
+
+.section__subtitle--theme-contact {
+  @include subtitle-style;
+  color: #898989;
+}
+
+.form {
+  margin: auto;
+  margin-top: 40px;
+  @media (max-width: 699px) { /////////////// max-width
+    height: 140px;
+  }
+  @media (min-width: 700px) {
+    width: 72%;
+    height: 50px;
+  }
+}
+
+.form__input {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding-left: 25px;
+  padding-right: 25px;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 1px 1px #fcdb00;
+  }
+  @media (max-width: 699px) { /////////////// max-width
+    width: 100%;
+    height: 50%;
+  }
+  @media (min-width: 700px) { /////////////// max-width
+    width: 80%;
+    height: 100%;
+  }
+}
+
+.form__button {
+  // margin: auto;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #fcdb00;
+  border: none;
+  border-radius: 5px;
+  @media (max-width: 699px) { /////////////// max-width
+    width: 100%;
+    height: 50%;
+    margin-top: 5px;
+  }
+  @media (min-width: 700px) {
+    width: 17%;
+    height: 100%;
+    float: right;
+  }
+}
+
+.link-cont {
+  text-align: center;
+  margin-top: 40px;
+  @media (min-width: 700px) {
+    margin-top: 60px;
+  }
+}
+
+.link-cont__link {
+  color: #fcdb00;
+  &:nth-child(-n+3) {
+    margin-right: 30px;
+  }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-right: 5%;
 }

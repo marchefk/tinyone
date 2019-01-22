@@ -1,0 +1,18 @@
+@mixin title-style {
+  margin: 0;
+  @media (min-width: 700px) {
+    text-align: center;
+  }
+}
+
+@mixin subtitle-style {
+  margin: 10px auto 20px auto;
+  @media (min-width: 700px) {
+    width: 72%;
+    text-align: center;
+  }
+  @media (orientation: landscape) {
+    text-align: justify;
+    text-align-last: center;
+  }
+}
