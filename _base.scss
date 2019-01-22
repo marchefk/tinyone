@@ -1,0 +1,21 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, html {
+  box-sizing: border-box;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+}
