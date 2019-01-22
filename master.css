@@ -6,7 +6,8 @@ body, html {
   margin: 0;
   height: 100%;
   width: 100%;
-  font-family: 'PT Sans', sans-serif; }
+  font-family: 'PT Sans', sans-serif;
+  color: #010101; }
 
 .list {
   list-style-type: none;
@@ -21,8 +22,8 @@ body, html {
   top: 0;
   height: 100vh;
   width: 100%;
-  padding-left: 16%;
-  padding-right: 16%;
+  padding-left: 12%;
+  padding-right: 12%;
   overflow: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -36,6 +37,10 @@ body, html {
       flex-direction: row;
       justify-content: space-between;
       align-items: center; } }
+  @media (min-width: 900px) {
+    .nav {
+      padding-left: 16%;
+      padding-right: 16%; } }
 
 .nav__item {
   font-weight: 700;
@@ -53,12 +58,19 @@ body, html {
   min-height: 100vh;
   width: 100%;
   padding: 10%; }
-  @media (min-width: 700px) {
+  @media (orientation: portrait) and (min-width: 700px) {
+    .section {
+      padding-left: 12%;
+      padding-right: 12%; } }
+  @media (min-width: 900px) {
     .section {
       padding-left: 16%;
       padding-right: 16%; } }
 
-@media (min-width: 700px) {
+@media (orientation: portrait) and (min-width: 700px) {
+  .section__content {
+    width: 70%; } }
+@media (orientation: landscape) and (min-width: 900px) {
   .section__content {
     width: 50%;
     padding-right: 5%; } }
@@ -76,20 +88,43 @@ body, html {
 .section__icon {
   margin-top: 5%; }
 
-.section__img {
-  margin-right: 5%; }
-  @media (max-width: 699px) {
-    .section__img {
-      display: none; } }
+@media (max-width: 699px) {
+  .section__img {
+    display: none; } }
+@media (orientation: landscape) and (min-width: 700px) {
+  .section__img {
+    width: 35%; } }
+@media (orientation: portrait) and (min-width: 700px) {
+  .section__img {
+    width: 45%; } }
+@media (min-width: 900px) {
+  .section__img {
+    width: initial;
+    margin-right: 5%; } }
 
 .section--theme-header {
   background-color: #fcdb00;
-  overflow: hidden; }
+  overflow: hidden;
+  display: flex;
+  align-items: center; }
   @media (min-width: 700px) {
     .section--theme-header {
       display: flex;
       align-items: center;
-      justify-content: space-between; } }
+      justify-content: space-between;
+      flex-direction: column; } }
+  @media (orientation: landscape) and (min-width: 800px) {
+    .section--theme-header {
+      flex-direction: row; } }
+  @media (min-width: 1200px) {
+    .section--theme-header {
+      flex-direction: row; } }
+
+.section__subtitle--color-accent {
+  color: #313841; }
+
+.section__text--color-accent {
+  color: #555555; }
 
 .section--theme-features {
   background-color: white; }
