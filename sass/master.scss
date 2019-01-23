@@ -1,12 +1,25 @@
 @import '_base';
 @import '_mixins';
+@import '_variables';
 
 // Navigation
 
+.nav-toggler {
+  background-color: inherit;
+  border: none;
+  border-radius: 5px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  @media (min-width: 800px) {
+    display: none;
+  }
+
+}
+
 .nav {
-  // position: fixed;                                Only temporarly
+  position: fixed;
   top: 0;
-  height: 100vh;
   width: 100%;
   padding-left: 12%;
   padding-right: 12%;
@@ -14,10 +27,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
-  background-color: #fcdb00;
-  @media (min-width: 700px) {
+  background-color: $color-accent;
+  transition: height ease 1s;
+  @media (min-width: 800px) {
     height: 140px;
     flex-direction: row;
     justify-content: space-between;
@@ -29,11 +42,41 @@
   }
 }
 
+.nav--expanded {
+  @media (max-width: 799px) {
+    height: 100vh;
+    flex-direction: column;
+    transition: height ease 1s;
+  }
+}
+
+.nav__logo {
+  margin-top: 10px;
+}
+
+.nav__list {
+  transition: height ease 1s;
+  height: 0;
+  @media (min-width: 800px) {
+    height: initial;
+  }
+}
+
+.nav__list--expanded {
+  @media (max-width: 799px) {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+    text-align: center;
+  }
+}
 
 .nav__item {
   font-weight: 700;
   font-size: 1.4rem;
-  @media (min-width: 700px) {
+  @media (min-width: 800px) {
     float: left;
     &:nth-child(-n+2){
       margin-right: 60px;
@@ -42,7 +85,7 @@
 }
 
 .nav__link {
-  color: #010101;
+  color: $color-primary;
 }
 
 
@@ -82,7 +125,7 @@
 .section__subtitle {
   font-size: 1.25rem;
   font-weight: 400;
-  color: #313841;
+  color: $color-text1;
 }
 
 .section__text {
@@ -113,7 +156,7 @@
 }
 
 .section--theme-header {
-  background-color: #fcdb00;
+  background-color: $color-accent;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -133,14 +176,14 @@
 }
 
 .section__text--theme-header {
-  color: #555555;
+  color: $color-text2;
 }
 
 
 // Section: Features
 
 .section--theme-features {
-  background-color: white;
+  background-color: $color-secondary;
   display: flex;
 }
 
@@ -196,15 +239,15 @@
 }
 
 .features__text {
-  color: #898989;
+  color: $color-text3;
 }
 
 
 // Section: Contact
 
 .section--theme-contact {
-  background-color: #010101;
-  color: white;
+  background-color: $color-primary;
+  color: $color-secondary;
   display: flex;
   @media (orientation: portrait) and (min-width: 700px) {
     min-height: auto;
@@ -213,12 +256,12 @@
 
 .section__title--theme-contact {
   @include title-style;
-  color: #fcdb00;
+  color: $color-accent;
 }
 
 .section__subtitle--theme-contact {
   @include subtitle-style;
-  color: #898989;
+  color: $color-text3;
 }
 
 .form {
@@ -242,7 +285,7 @@
   padding-right: 25px;
   &:focus {
     outline: none;
-    box-shadow: 0 0 1px 1px #fcdb00;
+    box-shadow: 0 0 1px 1px $color-accent;
   }
   @media (max-width: 699px) { /////////////// max-width
     width: 100%;
@@ -256,11 +299,12 @@
 
 .form__button {
   // margin: auto;
+  @include hover-focus-active($color-accent);
   font-family: 'PT Sans', sans-serif;
   font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  background-color: #fcdb00;
+  background-color: $color-accent;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -288,7 +332,7 @@
 }
 
 .link-cont__link {
-  color: #fcdb00;
+  color: $color-accent;
   &:nth-child(-n+3) {
     margin-right: 30px;
   }
@@ -309,7 +353,7 @@
 .footer__text {
   width: 100%;
   padding-bottom: 25px;
-  border-bottom: 1px solid #313841;
+  border-bottom: 1px solid $color-text1;
   margin: 50px auto 25px auto;
   @media (min-width: 700px) {
     width: auto;
@@ -334,7 +378,7 @@
 }
 
 .footer__link {
-  color: white;
+  color: $color-secondary;
   @media (max-width: 699px) {
     text-decoration: underline;
   }
