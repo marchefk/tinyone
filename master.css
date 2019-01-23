@@ -9,6 +9,15 @@ body, html {
   font-family: 'PT Sans', sans-serif;
   color: #010101; }
 
+html {
+  font-size: 17px; }
+  @media (min-width: 1400px) and (max-width: 1600px) {
+    html {
+      font-size: 16px; } }
+  @media (min-width: 1800px) {
+    html {
+      font-size: 18px; } }
+
 .list {
   list-style-type: none;
   margin: 0;
@@ -43,7 +52,7 @@ body, html {
 
 .nav__item {
   font-weight: 700;
-  font-size: 22px; }
+  font-size: 1.4rem; }
   @media (min-width: 700px) {
     .nav__item {
       float: left; }
@@ -57,6 +66,10 @@ body, html {
   min-height: 100vh;
   width: 100%;
   padding: 5% 10%; }
+  @media (orientation: portrait) {
+    .section {
+      padding-top: 15%;
+      padding-bottom: 15%; } }
   @media (orientation: portrait) and (min-width: 700px) {
     .section {
       padding-left: 12%;
@@ -75,15 +88,15 @@ body, html {
     padding-right: 5%; } }
 
 .section__title {
-  font-size: 32px; }
+  font-size: 2rem; }
 
 .section__subtitle {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 400;
   color: #313841; }
 
 .section__text {
-  font-size: 16px; }
+  font-size: 1rem; }
 
 .section__icon {
   margin-top: 5%; }
@@ -126,7 +139,11 @@ body, html {
   color: #555555; }
 
 .section--theme-features {
-  background-color: white; }
+  background-color: white;
+  display: flex; }
+
+.section__wrap {
+  margin: auto; }
 
 .section__title--theme-features {
   margin: 0; }
@@ -176,14 +193,18 @@ body, html {
 .features__title {
   margin: 0;
   font-weight: 400;
-  font-size: 22px; }
+  font-size: 1.4rem; }
 
 .features__text {
   color: #898989; }
 
 .section--theme-contact {
   background-color: #010101;
-  color: white; }
+  color: white;
+  display: flex; }
+  @media (orientation: portrait) and (min-width: 700px) {
+    .section--theme-contact {
+      min-height: auto; } }
 
 .section__title--theme-contact {
   margin: 0;
@@ -217,7 +238,7 @@ body, html {
 
 .form__input {
   font-family: 'PT Sans', sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   border: none;
   border-radius: 5px;
   padding-left: 25px;
@@ -236,12 +257,15 @@ body, html {
 
 .form__button {
   font-family: 'PT Sans', sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   text-transform: uppercase;
   background-color: #fcdb00;
   border: none;
-  border-radius: 5px; }
+  border-radius: 5px;
+  cursor: pointer; }
+  .form__button:focus {
+    outline: none; }
   @media (max-width: 699px) {
     .form__button {
       width: 100%;
@@ -269,6 +293,41 @@ body, html {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding-right: 5%; }
+  text-align: center; }
+  @media (min-width: 700px) {
+    .footer {
+      padding-right: 5%;
+      text-align: left;
+      margin-top: 10%; } }
+
+.footer__text {
+  width: 100%;
+  padding-bottom: 25px;
+  border-bottom: 1px solid #313841;
+  margin: 50px auto 25px auto; }
+  @media (min-width: 700px) {
+    .footer__text {
+      width: auto;
+      margin: initial;
+      padding: initial;
+      border: none; } }
+
+.footer__list {
+  width: 100%; }
+  @media (min-width: 400px) {
+    .footer__list {
+      width: auto; } }
+
+.footer__item {
+  margin-bottom: 20px; }
+  @media (min-width: 400px) {
+    .footer__item {
+      margin-bottom: initial; } }
+
+.footer__link {
+  color: white; }
+  @media (max-width: 699px) {
+    .footer__link {
+      text-decoration: underline; } }
 
 /*# sourceMappingURL=master.css.map */
