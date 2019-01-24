@@ -58,7 +58,7 @@ html {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      transition: height 1s; } }
+      transition: height 0.8s; } }
   @media (min-width: 900px) {
     .nav {
       padding-right: 16%;
@@ -66,7 +66,7 @@ html {
 
 @media (min-width: 800px) {
   .nav--shrink {
-    height: 80px; } }
+    height: 60px; } }
 
 @media (max-width: 799px) {
   .scroll-hide {
@@ -221,7 +221,8 @@ html {
       text-align: center; } }
   @media (min-width: 700px) and (orientation: landscape) {
     .section__subtitle--theme-features {
-      text-align: justify; } }
+      text-align: justify;
+      text-align-last: center; } }
 
 .features {
   display: flex;
@@ -283,7 +284,8 @@ html {
       text-align: center; } }
   @media (min-width: 700px) and (orientation: landscape) {
     .section__subtitle--theme-contact {
-      text-align: justify; } }
+      text-align: justify;
+      text-align-last: center; } }
 
 .form {
   margin: auto;

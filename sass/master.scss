@@ -35,7 +35,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    transition: height 1s;
+    transition: height 0.8s;
   }
   @media (min-width: 900px) {
     @include horizontal-padding($percentage-lg);
@@ -44,7 +44,7 @@
 
 .nav--shrink {
   @media (min-width: 800px) {
-    height: 80px;
+    height: 60px;
   }
 }
 
