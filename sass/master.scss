@@ -24,8 +24,7 @@
   height: 60px;
   background-color: $color-accent;
   @media (min-width: 800px) {
-    padding-left: 12%;
-    padding-right: 12%;
+    @include horizontal-padding($percentage-sm);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -37,17 +36,17 @@
     transition: none;
   }
   @media (min-width: 900px) {
-    padding-left: 16%;
-    padding-right: 16%;
+    @include horizontal-padding($percentage-lg);
   }
 }
 
 .nav__logo {
   @media (max-width: 799px) {
-  margin-top: 8px;
-  margin-left: 12%;
+    margin-top: 8px;
+    margin-left: $percentage-sm;
   }
 }
+
 
 .nav__list {
   @media (max-width: 799px) {
@@ -78,6 +77,8 @@
   font-size: 1.4rem;
   @media (max-width: 799px) {
     overflow: hidden;
+    opacity: 0;
+    transition: all ease 0.5s;
   }
   @media (min-width: 800px) {
     float: left;
@@ -85,6 +86,10 @@
       margin-right: 60px;
     }
   }
+}
+
+.nav__item--expanded {
+  opacity: 1;
 }
 
 .nav__link {
@@ -102,12 +107,10 @@
     padding-bottom: 15%;
   }
   @media (orientation: portrait) and (min-width: 700px) {
-    padding-left: 12%;
-    padding-right: 12%;
+    @include horizontal-padding($percentage-md);
   }
   @media (min-width: 900px) {
-    padding-left: 16%;
-    padding-right: 16%;
+    @include horizontal-padding($percentage-lg);
   }
 }
 
@@ -146,13 +149,19 @@
   @media (max-width: 699px) { /////////////// max-width
     display: none;
   }
-  @media (orientation: landscape) and (min-width: 700px) { ///////////to check
-    width: 35%;
+  @media (min-width: 700px) {
+    margin-top: 50px;
+    @media (orientation: landscape) { ///////////to check
+      width: 35%;
+    }
+    @media (orientation: portrait) {
+      width: 45%;
+    }
   }
-  @media (orientation: portrait) and (min-width: 700px) {
-    width: 45%;
+  @media (orientation: landscape) and (min-width: 800px) {
+    margin-left: 30px;
   }
-  @media (min-width: 900px) {
+  @media (min-width: 1000px) {
     width: initial;
     margin-right: 5%;
   }
