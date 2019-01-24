@@ -26,16 +26,17 @@ html {
 .link {
   text-decoration: none; }
 
-.nav-toggler {
+.nav__button {
   background-color: inherit;
   border: none;
   border-radius: 5px;
   position: fixed;
   top: 10px;
   right: 10px;
-  outline: none; }
+  outline: none;
+  transition: top 0.5s; }
   @media (min-width: 800px) {
-    .nav-toggler {
+    .nav__button {
       display: none; } }
 
 .nav {
@@ -43,7 +44,8 @@ html {
   top: 0;
   width: 100%;
   height: 60px;
-  background-color: #fcdb00; }
+  background-color: #fcdb00;
+  transition: top 0.5s; }
   @media (min-width: 800px) {
     .nav {
       padding-right: 10%;
@@ -56,11 +58,19 @@ html {
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      transition: none; } }
+      transition: height 1s; } }
   @media (min-width: 900px) {
     .nav {
       padding-right: 16%;
       padding-left: 16%; } }
+
+@media (min-width: 800px) {
+  .nav--shrink {
+    height: 80px; } }
+
+@media (max-width: 799px) {
+  .scroll-hide {
+    top: -1000px; } }
 
 @media (max-width: 799px) {
   .nav__logo {
