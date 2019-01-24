@@ -11,30 +11,30 @@
   position: fixed;
   top: 10px;
   right: 10px;
+  outline: none;
   @media (min-width: 800px) {
     display: none;
   }
-
 }
 
 .nav {
   position: fixed;
   top: 0;
   width: 100%;
-  padding-left: 12%;
-  padding-right: 12%;
-  overflow: hidden;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  align-items: flex-start;
+  height: 60px;
   background-color: $color-accent;
-  transition: height ease 1s;
   @media (min-width: 800px) {
+    padding-left: 12%;
+    padding-right: 12%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: flex-start;
     height: 140px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    transition: none;
   }
   @media (min-width: 900px) {
     padding-left: 16%;
@@ -42,21 +42,26 @@
   }
 }
 
-.nav--expanded {
+.nav__logo {
   @media (max-width: 799px) {
-    height: 100vh;
-    flex-direction: column;
-    transition: height ease 1s;
+  margin-top: 8px;
+  margin-left: 12%;
   }
 }
 
-.nav__logo {
-  margin-top: 10px;
-}
-
 .nav__list {
-  transition: height ease 1s;
-  height: 0;
+  @media (max-width: 799px) {
+    transition: all ease 1s;
+    height: 0;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    overflow: hidden;
+    background-color: $color-accent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
   @media (min-width: 800px) {
     height: initial;
   }
@@ -64,18 +69,16 @@
 
 .nav__list--expanded {
   @media (max-width: 799px) {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin: auto;
-    text-align: center;
+    height: 50vh;
   }
 }
 
 .nav__item {
   font-weight: 700;
   font-size: 1.4rem;
+  @media (max-width: 799px) {
+    overflow: hidden;
+  }
   @media (min-width: 800px) {
     float: left;
     &:nth-child(-n+2){
@@ -305,6 +308,7 @@
   font-weight: 700;
   text-transform: uppercase;
   background-color: $color-accent;
+  transition: background-color ease 0.5s;
   border: none;
   border-radius: 5px;
   cursor: pointer;
