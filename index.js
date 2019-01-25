@@ -1,30 +1,3 @@
-// const navElems = {
-//   navItems: {
-//     className: 'nav',
-//   },
-//   navList: {
-//     className: 'nav__list',
-//   }
-// };
-//
-// const toggleNav = obj => {
-//   let elList = document.getElementById(obj.className);
-//   let expanded = `${obj.className}--expanded`;
-//   for (let el in elList) {
-//    toggleClass(el, expanded);
-//   }
-// }
-//
-// const toggleNavElems = document.getElementsByClassName('toggle-nav');
-// for (let toggler of toggleNavElems) {
-//   toggler.addEventListener('click', () => {
-//     for (var e in navElems) {
-//       toggleNav(navElems[e]);
-//     }
-//   });
-// }
-
-
 const nav = document.getElementById('nav');
 const navButton = document.getElementById('nav_button')
 const navList = document.getElementById('nav_list');
@@ -32,12 +5,10 @@ const navItems = document.getElementsByClassName('nav__item');
 const toggleNavElems = document.getElementsByClassName('toggle-nav');
 
 
-
-// All elements with 'toggle-nav' class now have event listener
-// that expands navigation on small screen:
 for (let toggler of toggleNavElems) {
   toggler.addEventListener('click', () => {
     navList.classList.toggle('nav__list--expanded');
+
     for (let item of navItems) {
       item.classList.toggle('nav__item--expanded');
     }
@@ -45,7 +16,7 @@ for (let toggler of toggleNavElems) {
 }
 
 
-// Helper function to conditionally toggle class
+// helper for hideNav and shrinkNav
 const getAction = (a, b, el, className) => {
   if (a < b && !el.classList.contains(className)) {
     return 'add';
@@ -55,49 +26,64 @@ const getAction = (a, b, el, className) => {
 }
 
 
-// On mobile when user scrolls down, navigation will change its position so that
-// its not visible. When the user scrolls up it will appear again.
+// hideNav:
 let prevScrollPos = window.pageYOffset;
 const scrollHideEls = [nav, navButton, navList];
 const hideNav = currPos => {
   for (let el of scrollHideEls) {
     let action = getAction(prevScrollPos, currPos, el, 'scroll-hide');
+
     if (action) {
-      el.classList[action]('scroll-hide');
+      return el.classList[action]('scroll-hide');
     }
   }
   prevScrollPos = currPos;
 }
 
 
-// Shrink nav height after scrolling past a certain point (screen > 800px):
-const shrinkNavPoint = 1/10 * document.getElementById('section_home').clientHeight;
+// shrinkNav
+const shrinkNavPoint = 1/10 * document.getElementById('section_header').clientHeight;
 const shrinkNav = currPos => {
   let action = getAction(shrinkNavPoint, currPos, nav, 'nav--shrink');
+
   if (action) {
-    nav.classList[action]('nav--shrink');
+    return nav.classList[action]('nav--shrink');
   }
 }
 
 
-// Slideshow function that gets called every 3 seconds
+// helper for startSlideshow:
+function Elements(className, slideIndex) {
+  this.className = className;
+  this.list = document.getElementsByClassName(className);
+  this.removeActiveClass = function() {
+    for (let el of this.list) {
+      if (el.classList.contains(`${this.className}--active`)) {
+        el.classList.remove(`${this.className}--active`);
+      }
+    }
+  }
+  this.addActiveClass = function(index) {
+    this.list[index].classList.add(`${this.className}--active`);
+  }
+}
+
+// startSlideshow:
+const slides = new Elements('slide');
+const dots = new Elements('indicator_dot');
 let slideIndex = 0;
 const startSlideshow = () => {
-  let slides = document.getElementsByClassName("slide");
-  let dots = document.getElementsByClassName("dot");
-  for (let slide of slides) {
-    slide.style.display = "none";
-  }
+  slides.removeActiveClass();
+  dots.removeActiveClass();
   slideIndex += 1;
+
   if (slideIndex > slides.length) {
     slideIndex = 1;
   }
-  for (let dot of dots) {
-    dot.className = dot.className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "flex";
-  dots[slideIndex-1].className += " active";
-  setTimeout(startSlideshow, 3000);
+
+  slides.addActiveClass(slideIndex-1);
+  dots.addActiveClass(slideIndex-1);
+  setTimeout(startSlideshow, 5000);
 }
 
 

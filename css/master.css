@@ -34,10 +34,6 @@ html {
 .link {
   text-decoration: none; }
 
-@media (max-width: 799px) {
-  .scroll-hide {
-    top: -1000px; } }
-
 .nav {
   position: fixed;
   top: 0;
@@ -60,8 +56,8 @@ html {
       transition: height 0.8s; } }
   @media (min-width: 900px) {
     .nav {
-      padding-right: 16%;
-      padding-left: 16%; } }
+      padding-right: 17%;
+      padding-left: 17%; } }
 
 @media (min-width: 800px) {
   .nav--shrink {
@@ -136,17 +132,41 @@ html {
       padding-bottom: 15%; } }
   @media (orientation: portrait) and (min-width: 700px) {
     .section {
-      padding-right: 12%;
-      padding-left: 12%; } }
+      padding-right: 14%;
+      padding-left: 14%; } }
   @media (min-width: 900px) {
     .section {
-      padding-right: 16%;
-      padding-left: 16%; } }
+      padding-right: 17%;
+      padding-left: 17%; } }
 
 .section--theme-header {
   background-color: #fcdb00;
   display: flex;
+  align-items: center;
+  flex-direction: column; }
+  @media (min-width: 800px) {
+    .section--theme-header {
+      padding-top: 140px;
+      padding-bottom: 0; } }
+
+.slide {
+  overflow: hidden;
+  display: none;
   align-items: center; }
+  @media (min-width: 700px) {
+    .slide {
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column; } }
+  @media (orientation: landscape) and (min-width: 800px) {
+    .slide {
+      flex-direction: row; } }
+  @media (orientation: portrait) and (min-width: 1200px) {
+    .slide {
+      flex-direction: row; } }
+
+.slide--active {
+  display: flex; }
 
 @media (orientation: portrait) and (min-width: 700px) {
   .slide__content {
@@ -154,32 +174,35 @@ html {
 @media (orientation: landscape) and (min-width: 900px) {
   .slide__content {
     width: 50%;
-    padding-right: 5%; } }
+    padding-right: 5%;
+    margin-bottom: 75px; } }
+
+.slide__title {
+  margin-bottom: 0; }
 
 .slide__text {
   font-size: 1rem;
   color: #555555; }
 
 .slide__icon {
-  margin-top: 5%; }
+  margin-top: 4%; }
   .slide__icon:nth-of-type(-n+2) {
-    margin-right: 35px; }
+    margin-right: 32px; }
 
 @media (max-width: 699px) {
   .slide__img {
     display: none; } }
-@media (min-width: 700px) {
+@media (min-width: 700px) and (orientation: landscape) {
   .slide__img {
+    width: 35%; } }
+@media (min-width: 700px) and (orientation: portrait) {
+  .slide__img {
+    width: 45%;
     margin-top: 50px; } }
-  @media (min-width: 700px) and (orientation: landscape) {
-    .slide__img {
-      width: 35%; } }
-  @media (min-width: 700px) and (orientation: portrait) {
-    .slide__img {
-      width: 45%; } }
 
 @media (orientation: landscape) and (min-width: 800px) {
   .slide__img {
+    margin-top: 0;
     margin-left: 30px; } }
 @media (min-width: 1000px) {
   .slide__img {
@@ -187,17 +210,26 @@ html {
     margin-right: 5%; } }
 
 /* The dots/bullets/indicators */
-.dot {
-  height: 15px;
-  width: 15px;
+.indicator {
+  width: 100%;
+  overflow: hidden;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto; }
+
+.indicator_dot {
+  height: 13px;
+  width: 13px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease; }
 
-.active {
-  background-color: #717171; }
+.indicator_dot--active {
+  background-color: white; }
 
 /* Fading animation */
 .fade {
@@ -216,23 +248,6 @@ html {
     opacity: 0.4; }
   to {
     opacity: 1; } }
-.slide {
-  overflow: hidden;
-  display: flex;
-  align-items: center; }
-  @media (min-width: 700px) {
-    .slide {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-direction: column; } }
-  @media (orientation: landscape) and (min-width: 800px) {
-    .slide {
-      flex-direction: row; } }
-  @media (min-width: 1200px) {
-    .slide {
-      flex-direction: row; } }
-
 .section--theme-features {
   background-color: white;
   display: flex; }
@@ -418,5 +433,9 @@ html {
   @media (max-width: 699px) {
     .footer__link {
       text-decoration: underline; } }
+
+@media (max-width: 799px) {
+  .scroll-hide {
+    top: -1000px; } }
 
 /*# sourceMappingURL=master.css.map */

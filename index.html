@@ -9,27 +9,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <title>Tinyone website</title>
 </head>
-
 <body>
-
   <!-- Navigation -->
   <nav class="nav" id="nav">
-      <img class="nav__logo" src="./img/logo.png" alt="Company logo" />
-      <button class="nav__button toggle-nav" id="nav_button">
-        <i class="fa fa-bars fa-3x"></i>
-      </button>
-
+    <img class="nav__logo" src="./img/logo.png" alt="Company logo" />
+    <button class="nav__button toggle-nav" id="nav_button">
+      <i class="fa fa-bars fa-3x"></i>
+    </button>
     <ul class="nav__list list" id="nav_list">
       <li class="nav__item toggle-nav"><a class="nav__link link" href="#">Features</a></li>
       <li class="nav__item toggle-nav"><a class="nav__link link" href="#">Support</a></li>
       <li class="nav__item toggle-nav"><a class="nav__link link" href="#">Blog</a></li>
     </ul>
   </nav>
-
+<!-- Main -->
   <main>
-    <!-- Home -->
-    <section class="section section--theme-header" id="section_home">
+    <!-- Section: Header -->
+    <section class="section section--theme-header" id="section_header">
+      <!-- Slideshow -->
       <div class="slideshow">
+        <!-- First slide initiated with 'active' modifier -->
+        <div class="slide slide--active fade">
+          <div class="slide__content">
+            <h1 class="slide__title title">Inspire your inspiration</h1>
+            <h2 class="slide__subtitile subtitle">Simple to use for your app, products showcase and your inspiration</h2>
+            <p class="slide__text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Praesent vitae eros eget tellus tristique bibendum.
+              Donec rutrum sed sem quis venenatis. Proin viverra risus a eros volutpat tempor.
+              In quis arcu et eros porta lobortis sit
+            </p>
+            <i class="slide__icon fab fa-apple fa-3x"></i>
+            <i class="slide__icon fab fa-android fa-3x"></i>
+            <i class="slide__icon fab fa-windows fa-3x"></i>
+          </div>
+          <img class="slide__img" src="./img/iphone.png" alt="Image of a mobile phone" />
+        </div>
+        <!-- A slide -->
         <div class="slide fade">
           <div class="slide__content">
             <h1 class="slide__title title">Inspire your inspiration</h1>
@@ -44,134 +60,125 @@
             <i class="slide__icon fab fa-android fa-3x"></i>
             <i class="slide__icon fab fa-windows fa-3x"></i>
           </div>
-          <img src="./img/iphone.png" alt="Image of a mobile phone" class="slide__img" />
+          <img class="slide__img" src="./img/iphone.png" alt="Image of a mobile phone" />
         </div>
-  
-      <div class="slide fade">
-        <div class="slide__content">
-          <h1 class="slide__title title">Inspire your inspiration</h1>
-          <h2 class="slide__subtitile subtitle">Simple to use for your app, products showcase and your inspiration</h2>
-          <p class="slide__text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Praesent vitae eros eget tellus tristique bibendum.
-            Donec rutrum sed sem quis venenatis. Proin viverra risus a eros volutpat tempor.
-            In quis arcu et eros porta lobortis sit
-          </p>
-          <i class="slide__icon fab fa-apple fa-3x"></i>
-          <i class="slide__icon fab fa-android fa-3x"></i>
-          <i class="slide__icon fab fa-windows fa-3x"></i>
+        <!-- A slide -->
+        <div class="slide fade">
+          <div class="slide__content">
+            <h1 class="slide__title title">Inspire your inspiration</h1>
+            <h2 class="slide__subtitile subtitle">Simple to use for your app, products showcase and your inspiration</h2>
+            <p class="slide__text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Praesent vitae eros eget tellus tristique bibendum.
+              Donec rutrum sed sem quis venenatis. Proin viverra risus a eros volutpat tempor.
+              In quis arcu et eros porta lobortis sit
+            </p>
+            <i class="slide__icon fab fa-apple fa-3x"></i>
+            <i class="slide__icon fab fa-android fa-3x"></i>
+            <i class="slide__icon fab fa-windows fa-3x"></i>
+          </div>
+          <img class="slide__img" src="./img/iphone.png" alt="Image of a mobile phone" />
         </div>
-        <img src="./img/iphone.png" alt="Image of a mobile phone" class="slide__img" />
       </div>
-
-      <div class="slide fade">
-        <div class="slide__content">
-          <h1 class="slide__title title">Inspire your inspiration</h1>
-          <h2 class="slide__subtitile subtitle">Simple to use for your app, products showcase and your inspiration</h2>
-          <p class="slide__text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Praesent vitae eros eget tellus tristique bibendum.
-            Donec rutrum sed sem quis venenatis. Proin viverra risus a eros volutpat tempor.
-            In quis arcu et eros porta lobortis sit
-          </p>
-          <i class="slide__icon fab fa-apple fa-3x"></i>
-          <i class="slide__icon fab fa-android fa-3x"></i>
-          <i class="slide__icon fab fa-windows fa-3x"></i>
-        </div>
-        <img src="./img/iphone.png" alt="Image of a mobile phone" class="slide__img" />
-      </div>
-      <div style="text-align:center">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+      <div class="indicator">
+        <span class="indicator_dot"></span>
+        <span class="indicator_dot"></span>
+        <span class="indicator_dot"></span>
       </div>
     </section>
-    <!-- Features -->
+    <!-- Section: Features -->
     <section class="section section--theme-features">
       <div class="section__wrap">
-      <h1 class="section__title section__title--theme-features title">Tinyone features</h1>
-      <h2 class="section__subtitle section__subtitle--theme-features subtitle">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Praesent vitae eros eget tellus tristique bibendum.
-        Donec rutrum sed sem quis venenatis.
-      </h2>
-      <ul class="features list">
-        <li class="features__card">
-          <div class="features__icon-container">
-            <i class="features__icon fas fa-tablet-alt fa-3x"></i>
-          </div>
-          <div class="features__content">
-            <h3 class="features__title">Fully Responsive</h3>
-            <p class="features__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Praesent vitae eros eget tellus tristique bibendum.
-            </p>
-        </div>
-        </li>
-        <li class="features__card">
-          <div class="features__icon-container">
-            <i class="features__icon far fa-lemon fa-3x"></i>
-          </div>
-          <div class="features__content">
-            <h3 class="features__title">Fully Layered PSD</h3>
-            <p class="features__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Praesent vitae eros eget tellus tristique bibendum.
-            </p>
-          </div>
-        </li>
-        <li class="features__card">
-          <div class="features__icon-container">
-            <i class="features__icon far fa-folder fa-3x"></i>
-          </div>
-          <div class="features__content">
-            <h3 class="features__title">Font Awesome Icons</h3>
-            <p class="features__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Praesent vitae eros eget tellus tristique bibendum.
-            </p>
-          </div>
-        </li>
-        <li class="features__card">
-          <div class="features__icon-container">
-            <i class="features__icon fas fa-code fa-3x"></i>
-          </div>
-          <div class="features__content">
-            <h3 class="features__title">HTML3 & CSS3</h3>
-            <p class="features__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Praesent vitae eros eget tellus tristique bibendum.
-            </p>
-          </div>
-        </li>
-        <li class="features__card">
-          <div class="features__icon-container">
-            <i class="features__icon far fa-envelope fa-3x"></i>
-          </div>
-          <div class="features__content">
-            <h3 class="features__title">Email Template</h3>
-            <p class="features__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Praesent vitae eros eget tellus tristique bibendum.
-            </p>
-          </div>
-        </li>
-        <li class="features__card">
-          <div class="features__icon-container">
-            <i class="features__icon far fa-bookmark fa-3x"></i>
-          </div>
-          <div class="features__content">
-            <h3 class="features__title">Free to download</h3>
-            <p class="features__text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Praesent vitae eros eget tellus tristique bibendum.
-            </p>
-          </div>
-        </li>
-      </ul>
-    </div>
+        <h1 class="section__title section__title--theme-features title">Tinyone features</h1>
+        <h2 class="section__subtitle section__subtitle--theme-features subtitle">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Praesent vitae eros eget tellus tristique bibendum.
+          Donec rutrum sed sem quis venenatis.
+        </h2>
+        <!-- Features list -->
+        <ul class="features list">
+          <!-- A features card -->
+          <li class="features__card">
+            <div class="features__icon-container">
+              <i class="features__icon fas fa-tablet-alt fa-3x"></i>
+            </div>
+            <div class="features__content">
+              <h3 class="features__title">Fully Responsive</h3>
+              <p class="features__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent vitae eros eget tellus tristique bibendum.
+              </p>
+            </div>
+          </li>
+          <!-- A features card -->
+          <li class="features__card">
+            <div class="features__icon-container">
+              <i class="features__icon far fa-lemon fa-3x"></i>
+            </div>
+            <div class="features__content">
+              <h3 class="features__title">Fully Layered PSD</h3>
+              <p class="features__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent vitae eros eget tellus tristique bibendum.
+              </p>
+            </div>
+          </li>
+          <!-- A features card -->
+          <li class="features__card">
+            <div class="features__icon-container">
+              <i class="features__icon far fa-folder fa-3x"></i>
+            </div>
+            <div class="features__content">
+              <h3 class="features__title">Font Awesome Icons</h3>
+              <p class="features__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent vitae eros eget tellus tristique bibendum.
+              </p>
+            </div>
+          </li>
+          <!-- A features card -->
+          <li class="features__card">
+            <div class="features__icon-container">
+              <i class="features__icon fas fa-code fa-3x"></i>
+            </div>
+            <div class="features__content">
+              <h3 class="features__title">HTML3 & CSS3</h3>
+              <p class="features__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent vitae eros eget tellus tristique bibendum.
+              </p>
+            </div>
+          </li>
+          <!-- A features card -->
+          <li class="features__card">
+            <div class="features__icon-container">
+              <i class="features__icon far fa-envelope fa-3x"></i>
+            </div>
+            <div class="features__content">
+              <h3 class="features__title">Email Template</h3>
+              <p class="features__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent vitae eros eget tellus tristique bibendum.
+              </p>
+            </div>
+          </li>
+          <!-- A features card -->
+          <li class="features__card">
+            <div class="features__icon-container">
+              <i class="features__icon far fa-bookmark fa-3x"></i>
+            </div>
+            <div class="features__content">
+              <h3 class="features__title">Free to download</h3>
+              <p class="features__text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Praesent vitae eros eget tellus tristique bibendum.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
     </section>
-    <!-- Contact -->
+    <!-- Section: Contact -->
     <section class="section section--theme-contact">
       <div class="section__wrap">
         <h1 class="section__title section__title--theme-contact title">Keep in touch with us</h1>
@@ -180,24 +187,28 @@
           Praesent vitae eros eget tellus tristique bibendum.
           Donec rutrum sed sem quis venenatis.
         </h2>
+        <!-- Email form -->
         <form class="form">
           <input class="form__input" type="email" name="email" placeholder="Enter your email to update" required />
           <button class="form__button" type="submit" value="submit">Submit</button>
         </form>
+        <!-- Social media link icons -->
         <div class="link-cont">
           <a class="link-cont__link" href="#"><i class="link__icon fab fa-facebook-square fa-2x"></i></a>
           <a class="link-cont__link" href="#"><i class="link__icon fab fa-twitter-square fa-2x"></i></a>
           <a class="link-cont__link" href="#"><i class="link__icon fab fa-google-plus-square fa-2x"></i></a>
           <a class="link-cont__link" href="#"><i class="link__icon fab fa-pinterest-square fa-2x"></i></a>
         </div>
+        <!-- Footer -->
         <footer class="footer">
           <p class="footer__text">
-            HALOVIETNAM LTD<br/>
-            66, Dang Van ngu, Dong Da<br/>
-            Hanoi, Vietnam<br/>
-            contact@halovietnam.com<br/>
+            HALOVIETNAM LTD<br />
+            66, Dang Van ngu, Dong Da<br />
+            Hanoi, Vietnam<br />
+            contact@halovietnam.com<br />
             +844 35149182
           </p>
+          <!-- Footer links -->
           <ul class="footer__list list">
             <li class="footer__item"><a class="footer__link link" href="#">Examples</a></li>
             <li class="footer__item"><a class="footer__link link" href="#">Shop</a></li>
@@ -224,6 +235,7 @@
     </section>
   </main>
 
-<script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
+
 </html>

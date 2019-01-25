@@ -127,6 +127,33 @@
   background-color: $color-accent;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  @media (min-width: $min-sm-2){
+    padding-top: 140px;
+    padding-bottom: 0;
+  }
+}
+
+.slide {
+  overflow: hidden;
+  display: none;
+  align-items: center;
+  @media (min-width: $min-sm-1) {
+    // margin-top: 140px;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  @media (orientation: landscape) and (min-width: $min-sm-2) {
+    flex-direction: row;
+  }
+  @media (orientation: portrait) and (min-width: $min-l) {
+    flex-direction: row;
+  }
+}
+
+.slide--active {
+  display: flex;
 }
 
 .slide__content {
@@ -136,7 +163,12 @@
   @media (orientation: landscape) and (min-width: $min-md-1) {
     width: 50%;
     padding-right: 5%;
+    margin-bottom: 75px;
   }
+}
+
+.slide__title {
+  margin-bottom: 0;
 }
 
 .slide__text {
@@ -145,9 +177,9 @@
 }
 
 .slide__icon {
-  margin-top: 5%;
+  margin-top: 4%;
   &:nth-of-type(-n+2) {
-    margin-right: 35px;
+    margin-right: 32px;
   }
 }
 
@@ -156,15 +188,16 @@
     display: none;
   }
   @media (min-width: $min-sm-1) {
-    margin-top: 50px;
     @media (orientation: landscape) {
       width: 35%;
     }
     @media (orientation: portrait) {
       width: 45%;
+      margin-top: 50px;
     }
   }
   @media (orientation: landscape) and (min-width: $min-sm-2) {
+    margin-top: 0;
     margin-left: 30px;
   }
   @media (min-width: $min-md-2) {
@@ -174,18 +207,28 @@
 }
 
 /* The dots/bullets/indicators */
-.dot {
-  height: 15px;
-  width: 15px;
+.indicator {
+  width: 100%;
+  overflow: hidden;
+  min-height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.indicator_dot {
+  height: 13px;
+  width: 13px;
   margin: 0 2px;
-  background-color: #bbb;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease;
 }
 
-.active {
-  background-color: #717171;
+.indicator_dot--active {
+  background-color: $color-secondary;
 }
 
 /* Fading animation */
@@ -211,25 +254,6 @@
   }
   to {
     opacity: 1
-  }
-}
-
-.slide {
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  @media (min-width: $min-sm-1) {
-    // margin-top: 140px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
-  }
-  @media (orientation: landscape) and (min-width: $min-sm-2) {
-    flex-direction: row;
-  }
-  @media (min-width: $min-l) {
-    flex-direction: row;
   }
 }
 
@@ -445,5 +469,11 @@
   color: $color-secondary;
   @media (max-width: $max-sm-1) {
     text-decoration: underline;
+  }
+}
+
+.scroll-hide {
+  @media (max-width: $max-sm-2){
+    top: -1000px;
   }
 }
