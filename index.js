@@ -77,7 +77,7 @@ const startSlideshow = () => {
   dots.removeActiveClass();
   slideIndex += 1;
 
-  if (slideIndex > slides.length) {
+  if (slideIndex > slides.list.length) {
     slideIndex = 1;
   }
 
