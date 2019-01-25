@@ -15,12 +15,22 @@ body, html {
 
 html {
   font-size: 16px;
-  @media (min-width: 1600px) and (max-width: 1800px) {
+  @media (min-width: $min-xl-1) and (max-width: $min-xl-2) {
     font-size: 17px;
   }
-  @media (min-width: 1800px) {
+  @media (min-width: $min-xl-2) {
     font-size: 18px;
   }
+}
+
+.title {
+  font-size: 2rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: $color-text1;
 }
 
 .list {
@@ -31,4 +41,10 @@ html {
 
 .link {
   text-decoration: none;
+}
+
+.scroll-hide {
+  @media (max-width: $max-sm-2){
+    top: -1000px;
+  }
 }

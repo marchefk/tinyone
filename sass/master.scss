@@ -4,20 +4,6 @@
 
 // Navigation
 
-.nav__button {
-  background-color: inherit;
-  border: none;
-  border-radius: 5px;
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  outline: none;
-  transition: top 0.5s;
-  @media (min-width: 800px) {
-    display: none;
-  }
-}
-
 .nav {
   position: fixed;
   top: 0;
@@ -25,45 +11,54 @@
   height: 60px;
   background-color: $color-accent;
   transition: top 0.5s;
-  @media (min-width: 800px) {
+  z-index: 100;
+  @media (min-width: $min-sm-2) {
     @include horizontal-padding($percentage-sm);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    align-items: flex-start;
     height: 140px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     transition: height 0.8s;
   }
-  @media (min-width: 900px) {
+  @media (min-width: $min-md-1) {
     @include horizontal-padding($percentage-lg);
   }
 }
 
 .nav--shrink {
-  @media (min-width: 800px) {
+  @media (min-width: $min-sm-2) {
     height: 60px;
   }
 }
 
-.scroll-hide {
-  @media (max-width: 799px){
-    top: -1000px;
-  }
-}
-
 .nav__logo {
-  @media (max-width: 799px) {
+  @media (max-width: $max-sm-2) {
     margin-top: 8px;
     margin-left: $percentage-sm;
   }
 }
 
+.nav__button {
+  background-color: inherit;
+  border: none;
+  border-radius: 5px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  transition: top 0.5s;
+  &:focus {
+    outline: none;
+  }
+  @media (min-width: $min-sm-2) {
+    display: none;
+  }
+}
 
 .nav__list {
-  @media (max-width: 799px) {
+  @media (max-width: $max-sm-2) {
     transition: all ease 1s;
     height: 0;
     text-align: center;
@@ -75,13 +70,13 @@
     flex-direction: column;
     justify-content: space-around;
   }
-  @media (min-width: 800px) {
+  @media (min-width: $min-sm-2) {
     height: initial;
   }
 }
 
 .nav__list--expanded {
-  @media (max-width: 799px) {
+  @media (max-width: $max-sm-2) {
     height: 50vh;
   }
 }
@@ -89,12 +84,12 @@
 .nav__item {
   font-weight: 700;
   font-size: 1.4rem;
-  @media (max-width: 799px) {
+  @media (max-width: $max-sm-2) {
     overflow: hidden;
     opacity: 0;
     transition: all ease 0.5s;
   }
-  @media (min-width: 800px) {
+  @media (min-width: $min-sm-2) {
     float: left;
     &:nth-child(-n+2){
       margin-right: 60px;
@@ -120,89 +115,122 @@
     padding-top: 15%;
     padding-bottom: 15%;
   }
-  @media (orientation: portrait) and (min-width: 700px) {
+  @media (orientation: portrait) and (min-width: $min-sm-1) {
     @include horizontal-padding($percentage-md);
   }
-  @media (min-width: 900px) {
+  @media (min-width: $min-md-1) {
     @include horizontal-padding($percentage-lg);
   }
 }
 
-.section__content {
-  @media (orientation: portrait) and (min-width: 700px) {
+.section--theme-header {
+  background-color: $color-accent;
+  display: flex;
+  align-items: center;
+}
+
+.slide__content {
+  @media (orientation: portrait) and (min-width: $min-sm-1) {
     width: 70%;
   }
-  @media (orientation: landscape) and (min-width: 900px) {
+  @media (orientation: landscape) and (min-width: $min-md-1) {
     width: 50%;
     padding-right: 5%;
   }
 }
 
-.section__title {
-  font-size: 2rem;
-}
-
-.section__subtitle {
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: $color-text1;
-}
-
-.section__text {
+.slide__text {
   font-size: 1rem;
+  color: $color-text2;
 }
 
-.section__icon {
+.slide__icon {
   margin-top: 5%;
   &:nth-of-type(-n+2) {
     margin-right: 35px;
   }
 }
 
-.section__img {
-  @media (max-width: 699px) { /////////////// max-width
+.slide__img {
+  @media (max-width: $max-sm-1) {
     display: none;
   }
-  @media (min-width: 700px) {
+  @media (min-width: $min-sm-1) {
     margin-top: 50px;
-    @media (orientation: landscape) { ///////////to check
+    @media (orientation: landscape) {
       width: 35%;
     }
     @media (orientation: portrait) {
       width: 45%;
     }
   }
-  @media (orientation: landscape) and (min-width: 800px) {
+  @media (orientation: landscape) and (min-width: $min-sm-2) {
     margin-left: 30px;
   }
-  @media (min-width: 1000px) {
+  @media (min-width: $min-md-2) {
     width: initial;
     margin-right: 5%;
   }
 }
 
-.section--theme-header {
-  background-color: $color-accent;
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}
+
+.slide {
   overflow: hidden;
   display: flex;
   align-items: center;
-  @media (min-width: 700px) {
+  @media (min-width: $min-sm-1) {
     // margin-top: 140px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
   }
-  @media (orientation: landscape) and (min-width: 800px) {
+  @media (orientation: landscape) and (min-width: $min-sm-2) {
     flex-direction: row;
   }
-  @media (min-width: 1200px) {
+  @media (min-width: $min-l) {
     flex-direction: row;
   }
-}
-
-.section__text--theme-header {
-  color: $color-text2;
 }
 
 
@@ -217,12 +245,23 @@
   margin: auto;
 }
 
-.section__title--theme-features {
-  @include title-style;
+.section__title {
+  margin: 0;
+  @media (min-width: $min-sm-1) {
+    text-align: center;
+  }
 }
 
-.section__subtitle--theme-features {
-  @include subtitle-style;
+.section__subtitle {
+  margin: 10px auto 20px auto;
+  @media (min-width: $min-sm-1) {
+    width: 72%;
+    text-align: center;
+    @media (orientation: landscape) {
+      text-align: justify;
+      text-align-last: center;
+    }
+  }
 }
 
 .features {
@@ -235,11 +274,11 @@
   display: flex;
   justify-content: flex-end;
   margin-top: 40px;
-  @media (min-width: 700px) {
+  @media (min-width: $min-sm-1) {
     width: 50%;
     margin-top: 60px;
   }
-  @media (min-width: 1200px) {
+  @media (min-width: $min-l) {
     width: 33%;
   }
 }
@@ -275,28 +314,26 @@
   background-color: $color-primary;
   color: $color-secondary;
   display: flex;
-  @media (orientation: portrait) and (min-width: 700px) {
+  @media (orientation: portrait) and (min-width: $min-sm-1) {
     min-height: auto;
   }
 }
 
 .section__title--theme-contact {
-  @include title-style;
   color: $color-accent;
 }
 
 .section__subtitle--theme-contact {
-  @include subtitle-style;
   color: $color-text3;
 }
 
 .form {
   margin: auto;
   margin-top: 40px;
-  @media (max-width: 699px) { /////////////// max-width
+  @media (max-width: $max-sm-1) {
     height: 140px;
   }
-  @media (min-width: 700px) {
+  @media (min-width: $min-sm-1) {
     width: 72%;
     height: 50px;
   }
@@ -313,11 +350,11 @@
     outline: none;
     box-shadow: 0 0 1px 1px $color-accent;
   }
-  @media (max-width: 699px) { /////////////// max-width
+  @media (max-width: $max-sm-1) {
     width: 100%;
     height: 50%;
   }
-  @media (min-width: 700px) { /////////////// max-width
+  @media (min-width: $min-sm-1) {
     width: 80%;
     height: 100%;
   }
@@ -338,12 +375,12 @@
   &:focus {
     outline: none;
   }
-  @media (max-width: 699px) { /////////////// max-width
+  @media (max-width: $max-sm-1) {
     width: 100%;
     height: 50%;
     margin-top: 5px;
   }
-  @media (min-width: 700px) {
+  @media (min-width: $min-sm-1) {
     width: 17%;
     height: 100%;
     float: right;
@@ -353,7 +390,7 @@
 .link-cont {
   text-align: center;
   margin-top: 40px;
-  @media (min-width: 700px) {
+  @media (min-width: $min-sm-1) {
     margin-top: 60px;
   }
 }
@@ -370,7 +407,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   text-align: center;
-  @media (min-width: 700px) {
+  @media (min-width: $min-sm-1) {
     padding-right: 5%;
     text-align: left;
     margin-top: 10%;
@@ -382,7 +419,7 @@
   padding-bottom: 25px;
   border-bottom: 1px solid $color-text1;
   margin: 50px auto 25px auto;
-  @media (min-width: 700px) {
+  @media (min-width: $min-sm-1) {
     width: auto;
     margin: initial;
     padding: initial;
@@ -392,21 +429,21 @@
 
 .footer__list {
   width: 100%;
-  @media (min-width: 400px) {
+  @media (min-width: $min-xs) {
     width: auto;
   }
 }
 
 .footer__item {
   margin-bottom: 20px;
-  @media (min-width: 400px) {
+  @media (min-width: $min-xs) {
     margin-bottom: initial;
   }
 }
 
 .footer__link {
   color: $color-secondary;
-  @media (max-width: 699px) {
+  @media (max-width: $max-sm-1) {
     text-decoration: underline;
   }
 }
