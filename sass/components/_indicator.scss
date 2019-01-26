@@ -1,0 +1,27 @@
+.indicator {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 80px;
+  margin: auto;
+  overflow: hidden;
+  @media (orientation: portrait), (min-height: $min-h) {
+    margin-top: 50px;
+    margin-bottom: 0;
+  }
+}
+
+.indicator_dot {
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin: 0 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transition: background-color 0.6s ease;
+}
+
+.indicator_dot--active {
+  background-color: $color-secondary;
+}

@@ -1,0 +1,14 @@
+.link-cont {
+  margin-top: 40px;
+  text-align: center;
+  @media (min-width: $min-sm-1) {
+    margin-top: 60px;
+  }
+}
+
+.link-cont__link {
+  color: $color-accent;
+  &:nth-child(-n+3) {
+    margin-right: 30px;
+  }
+}
