@@ -144,10 +144,15 @@ html {
   display: flex;
   align-items: center;
   flex-direction: column; }
+  @media (orientation: landscape) and (min-width: 700px) {
+    .section--theme-header {
+      padding-bottom: 0; } }
   @media (min-width: 800px) {
     .section--theme-header {
-      padding-top: 140px;
-      padding-bottom: 0; } }
+      padding-top: 140px; } }
+  @media (orientation: portrait), (min-height: 780px) {
+    .section--theme-header {
+      justify-content: center; } }
 
 .slide {
   overflow: hidden;
@@ -168,9 +173,6 @@ html {
 .slide--active {
   display: flex; }
 
-@media (orientation: portrait) and (min-width: 700px) {
-  .slide__content {
-    width: 70%; } }
 @media (orientation: landscape) and (min-width: 900px) {
   .slide__content {
     width: 50%;
@@ -192,13 +194,15 @@ html {
 @media (max-width: 699px) {
   .slide__img {
     display: none; } }
-@media (min-width: 700px) and (orientation: landscape) {
+@media (min-width: 700px) {
   .slide__img {
-    width: 35%; } }
-@media (min-width: 700px) and (orientation: portrait) {
-  .slide__img {
-    width: 45%;
     margin-top: 50px; } }
+  @media (min-width: 700px) and (orientation: landscape) {
+    .slide__img {
+      width: 35%; } }
+  @media (min-width: 700px) and (orientation: portrait) {
+    .slide__img {
+      width: 45%; } }
 
 @media (orientation: landscape) and (min-width: 800px) {
   .slide__img {
@@ -213,11 +217,15 @@ html {
 .indicator {
   width: 100%;
   overflow: hidden;
-  min-height: 50px;
+  min-height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: auto; }
+  @media (orientation: portrait), (min-height: 780px) {
+    .indicator {
+      margin-top: 50px;
+      margin-bottom: 0; } }
 
 .indicator_dot {
   height: 13px;

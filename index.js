@@ -34,7 +34,7 @@ const hideNav = currPos => {
     let action = getAction(prevScrollPos, currPos, el, 'scroll-hide');
 
     if (action) {
-      return el.classList[action]('scroll-hide');
+      el.classList[action]('scroll-hide');
     }
   }
   prevScrollPos = currPos;
