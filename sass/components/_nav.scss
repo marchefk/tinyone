@@ -56,6 +56,7 @@
     height: 0;
     margin: auto;
     overflow: hidden;
+    border-bottom: 1px solid #ffdd0000;
     background-color: $color-accent;
     text-align: center;
     transition: all ease 1s;
@@ -68,6 +69,7 @@
 .nav__list--expanded {
   @media (max-width: $max-sm-2) {
     height: 50vh;
+    border-bottom: 1px solid #ffe53a;
   }
 }
 

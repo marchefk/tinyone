@@ -12,7 +12,7 @@
   }
 }
 
-.indicator_dot {
+.indicator__dot {
   display: inline-block;
   width: 13px;
   height: 13px;
@@ -22,6 +22,6 @@
   transition: background-color 0.6s ease;
 }
 
-.indicator_dot--active {
+.indicator__dot--active {
   background-color: $color-secondary;
 }

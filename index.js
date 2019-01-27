@@ -1,19 +1,10 @@
 const nav = document.getElementById('nav');
-const navButton = document.getElementById('nav_button')
-const navList = document.getElementById('nav_list');
+const navButton = document.getElementById('nav__button')
+const navList = document.getElementById('nav__list');
 const navItems = document.getElementsByClassName('nav__item');
 const toggleNavElems = document.getElementsByClassName('toggle-nav');
-
-
-for (let toggler of toggleNavElems) {
-  toggler.addEventListener('click', () => {
-    navList.classList.toggle('nav__list--expanded');
-
-    for (let item of navItems) {
-      item.classList.toggle('nav__item--expanded');
-    }
-  })
-}
+const form = document.getElementById('form');
+const input = document.getElementById('form__input');
 
 
 // helper for hideNav and shrinkNav
@@ -23,7 +14,7 @@ const getAction = (a, b, el, className) => {
   } else if (a > b && el.classList.contains(className)) {
     return 'remove';
   }
-}
+};
 
 
 // hideNav:
@@ -38,7 +29,7 @@ const hideNav = currPos => {
     }
   }
   prevScrollPos = currPos;
-}
+};
 
 
 // shrinkNav
@@ -49,7 +40,7 @@ const shrinkNav = currPos => {
   if (action) {
     return nav.classList[action]('nav--shrink');
   }
-}
+};
 
 
 // helper for startSlideshow:
@@ -62,15 +53,16 @@ function Elements(className, slideIndex) {
         el.classList.remove(`${this.className}--active`);
       }
     }
-  }
+  };
   this.addActiveClass = function(index) {
     this.list[index].classList.add(`${this.className}--active`);
-  }
+  };
 }
+
 
 // startSlideshow:
 const slides = new Elements('slide');
-const dots = new Elements('indicator_dot');
+const dots = new Elements('indicator__dot');
 let slideIndex = 0;
 const startSlideshow = () => {
   slides.removeActiveClass();
@@ -84,13 +76,29 @@ const startSlideshow = () => {
   slides.addActiveClass(slideIndex-1);
   dots.addActiveClass(slideIndex-1);
   setTimeout(startSlideshow, 5000);
+};
+
+
+
+for (let toggler of toggleNavElems) {
+  toggler.addEventListener('click', () => {
+    navList.classList.toggle('nav__list--expanded');
+
+    for (let item of navItems) {
+      item.classList.toggle('nav__item--expanded');
+    }
+  });
 }
 
+form.onsubmit = () => {
+  input.value = "";
+  return false;
+};
 
-// shrinkNav and hideNav added to window.onscroll:
 window.onscroll = () => {
   let currentScrollPos = window.pageYOffset;
   hideNav(currentScrollPos);
   shrinkNav(currentScrollPos);
-}
+};
+
 startSlideshow();
