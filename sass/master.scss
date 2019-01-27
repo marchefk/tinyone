@@ -1,6 +1,7 @@
-@import '_variables';
-@import '_base';
-@import '_mixins';
+@import './helpers/_variables';
+@import './helpers/_mixins';
+
+@import './base/_base';
 
 @import './components/_nav';
 @import './components/_section';
@@ -11,34 +12,4 @@
 @import './components/_link-cont';
 @import './components/_footer';
 
-
-.scroll-hide {
-  @media (max-width: $max-sm-2){
-    top: -1000px;
-  }
-}
-
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
+@import './helpers/_helpers';

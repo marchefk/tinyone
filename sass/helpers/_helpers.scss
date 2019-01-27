@@ -1,0 +1,28 @@
+%padding-media-query {
+  @media (min-width: $min-md-1) {
+    @include horizontal-padding($percentage-lg);
+  }
+  @media (min-width: $min-xl-2) {
+    @include horizontal-padding($percentage-xl);
+  }
+}
+
+.scroll-hide {
+  @media (max-width: $max-sm-2){
+    top: -1000px;
+  }
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 2s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

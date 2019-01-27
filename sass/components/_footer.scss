@@ -4,7 +4,7 @@
   text-align: center;
   justify-content: space-between;
   @media (min-width: $min-sm-1) {
-    padding-right: 5%;
+    padding-right: 6%;
     margin-top: 10%;
     text-align: left;
   }
@@ -14,6 +14,7 @@
   width: 100%;
   padding-bottom: 25px;
   margin: 50px auto 25px auto;
+  font-style: normal;
   border-bottom: 1px solid $color-text1;
   @media (min-width: $min-sm-1) {
     width: auto;

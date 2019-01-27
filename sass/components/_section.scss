@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   min-height: 100vh;
-  padding: 5% 10%;
+  padding: 5% $percentage-sm;
   @media (orientation: portrait) {
     padding-top: 15%;
     padding-bottom: 15%;
@@ -10,9 +10,7 @@
   @media (orientation: portrait) and (min-width: $min-sm-1) {
     @include horizontal-padding($percentage-md);
   }
-  @media (min-width: $min-md-1) {
-    @include horizontal-padding($percentage-lg);
-  }
+  @extend %padding-media-query;
 }
 
 .section--theme-header {

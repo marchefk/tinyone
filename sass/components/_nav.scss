@@ -8,8 +8,6 @@
   transition: top 0.5s;
   @media (min-width: $min-sm-2) {
     @include horizontal-padding($percentage-sm);
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -17,9 +15,7 @@
     height: 140px;
     transition: height 0.8s;
   }
-  @media (min-width: $min-md-1) {
-    @include horizontal-padding($percentage-lg);
-  }
+  @extend %padding-media-query;
 }
 
 .nav--shrink {
@@ -86,7 +82,7 @@
   @media (min-width: $min-sm-2) {
     float: left;
     &:nth-child(-n+2){
-      margin-right: 60px;
+      margin-right: 75px;
     }
   }
 }
