@@ -86,19 +86,6 @@ const startSlideshow = () => {
 
 
 
-const dot_elems = dots.list;
-for (let dot of dot_elems) {
-  dot.addEventListener('click', () => {
-    if (slideshowTimeout) {
-      clearTimeout(slideshowTimeout);
-    }
-
-    slideIndex = parseInt(dot.dataset.slideIndex);
-    startSlideshow();
-  });
-}
-
-
 // callback functions for swiping:
 let xTouchStart,
     yTouchStart;
@@ -137,6 +124,18 @@ const handleTouchMove = evt => {
 const slideshow = document.getElementById('slideshow');
 slideshow.addEventListener('touchstart', handleTouchStart, false);
 slideshow.addEventListener('touchmove', handleTouchMove, false);
+
+const dot_elems = dots.list;
+for (let dot of dot_elems) {
+  dot.addEventListener('click', () => {
+    if (slideshowTimeout) {
+      clearTimeout(slideshowTimeout);
+    }
+
+    slideIndex = parseInt(dot.dataset.slideIndex);
+    startSlideshow();
+  });
+}
 
 for (let toggler of toggleNavElems) {
   toggler.addEventListener('click', () => {
