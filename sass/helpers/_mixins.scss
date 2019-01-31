@@ -1,16 +1,22 @@
 @mixin hover-focus-active($color) {
   &:hover {
-    background-color: darken( $color, 10% );
+    background-color: darken( $color, 15% );
   }
   &:focus {
-    background-color: darken( $color, 5% );
+    background-color: darken( $color, 15% );
   }
   &:active {
-    background-color: darken( $color, 15% );
+    background-color: darken( $color, 20% );
   }
 }
 
 @mixin horizontal-padding($value) {
   padding-right: $value;
   padding-left: $value;
+}
+
+@mixin transition($value) {
+  -webkit-transition: $value;
+       -o-transition: $value;
+          transition: $value;
 }

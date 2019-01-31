@@ -1,5 +1,6 @@
 .section {
-  display: flex;
+  @include flexbox;
+  @include align-items(center);
   width: 100%;
   min-height: 100vh;
   padding: 5% $percentage-sm;
@@ -14,8 +15,7 @@
 }
 
 .section--theme-header {
-  align-items: center;
-  flex-direction: column;
+  @include flex-direction(column);
   background-color: $color-accent;
   @media (orientation: landscape) and (min-width: $min-sm-1) {
     padding-bottom: 0;
@@ -24,7 +24,7 @@
     padding-top: 140px;
   }
   @media (orientation: portrait), (min-height: $min-h) {
-    justify-content: center;
+    @include justify-content(center);
   }
 }
 
@@ -38,10 +38,6 @@
   @media (orientation: portrait) and (min-width: $min-sm-1) {
     min-height: auto;
   }
-}
-
-.section__wrap {
-  margin: auto;
 }
 
 .section__title {
@@ -72,6 +68,6 @@
 }
 
 .section__content {
-  display: flex;
-  flex-wrap: wrap;
+  @include flexbox;
+  @include flex-wrap(wrap);
 }

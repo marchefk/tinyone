@@ -29,6 +29,7 @@ html {
   font-size: 1.25rem;
   font-weight: 400;
   color: $color-text1;
+  line-height: 1.2;
 }
 
 .list {
@@ -39,4 +40,6 @@ html {
 
 .link {
   text-decoration: none;
+  color: inherit;
+  transition: color ease 0.5s;
 }

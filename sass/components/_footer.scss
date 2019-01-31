@@ -1,8 +1,8 @@
 .footer {
-  display: flex;
-  flex-wrap: wrap;
+  @include flexbox;
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
   text-align: center;
-  justify-content: space-between;
   @media (min-width: $min-sm-1) {
     padding-right: 6%;
     margin-top: 10%;
@@ -39,8 +39,14 @@
 }
 
 .footer__link {
-  color: $color-secondary;
   @media (max-width: $max-sm-1) {
     text-decoration: underline;
   }
+  &:hover {
+    color: darken( $color-secondary, 25% );
+  }
+}
+
+.footer__link--email {
+  line-height: 1.6;
 }

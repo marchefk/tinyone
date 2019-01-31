@@ -14,13 +14,13 @@
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <img class="nav__logo" src="./img/logo.png" alt="Company logo" />
-    <button class="nav__button toggle-nav" id="nav__button">
+    <button class="nav__button js-toggle-nav" id="nav__button">
       <i class="fa fa-bars fa-3x"></i>
     </button>
     <ul class="nav__list list" id="nav__list">
-      <li class="nav__item toggle-nav"><a class="nav__link link" href="#">Features</a></li>
-      <li class="nav__item toggle-nav"><a class="nav__link link" href="#">Support</a></li>
-      <li class="nav__item toggle-nav"><a class="nav__link link" href="#">Blog</a></li>
+      <li class="nav__item js-nav__item js-toggle-nav"><a class="nav__link link" href="#">Features</a></li>
+      <li class="nav__item js-nav__item js-toggle-nav"><a class="nav__link link" href="#">Support</a></li>
+      <li class="nav__item js-nav__item js-toggle-nav"><a class="nav__link link" href="#">Blog</a></li>
     </ul>
   </nav>
 <!-- Main -->
@@ -28,9 +28,9 @@
     <!-- Section: Header -->
     <section class="section section--theme-header" id="section_header">
       <!-- Slideshow -->
-      <div class="slideshow">
+      <div class="slideshow" id="slideshow">
         <!-- First slide initiated with 'active' modifier -->
-        <div class="slide slide--active fade">
+        <div class="slide slide--active fade js-slide">
           <div class="slide__content">
             <h1 class="slide__title title">Inspire your inspiration</h1>
             <h2 class="slide__subtitile subtitle">Simple to use for your app, products showcase and your inspiration</h2>
@@ -47,7 +47,7 @@
           <img class="slide__img" src="./img/iphone.png" alt="Image of a mobile phone" />
         </div>
         <!-- A slide -->
-        <div class="slide fade">
+        <div class="slide fade js-slide">
           <div class="slide__content">
             <h1 class="slide__title title">Inspire your inspiration</h1>
             <h2 class="slide__subtitile subtitle">Simple to use for your app, products showcase and your inspiration</h2>
@@ -64,7 +64,7 @@
           <img class="slide__img" src="./img/iphone.png" alt="Image of a mobile phone" />
         </div>
         <!-- A slide -->
-        <div class="slide fade">
+        <div class="slide fade js-slide">
           <div class="slide__content">
             <h1 class="slide__title title">Inspire your inspiration</h1>
             <h2 class="slide__subtitile subtitle">Simple to use for your app, products showcase and your inspiration</h2>
@@ -82,9 +82,9 @@
         </div>
       </div>
       <div class="indicator">
-        <span class="indicator__dot"></span>
-        <span class="indicator__dot"></span>
-        <span class="indicator__dot"></span>
+        <span class="indicator__dot js-indicator__dot" data-slide-index="0"></span>
+        <span class="indicator__dot js-indicator__dot" data-slide-index="1"></span>
+        <span class="indicator__dot js-indicator__dot" data-slide-index="2"></span>
       </div>
     </section>
     <!-- Section: Features -->
@@ -194,20 +194,36 @@
           <button class="form__button" type="submit" value="submit">Submit</button>
         </form>
         <!-- Social media link icons -->
-        <div class="link-cont">
-          <a class="link-cont__link" href="#" target="_blank"><i class="link__icon fab fa-facebook-square fa-2x"></i></a>
-          <a class="link-cont__link" href="#" target="_blank"><i class="link__icon fab fa-twitter-square fa-2x"></i></a>
-          <a class="link-cont__link" href="#" target="_blank"><i class="link__icon fab fa-google-plus-square fa-2x"></i></a>
-          <a class="link-cont__link" href="#" target="_blank"><i class="link__icon fab fa-pinterest-square fa-2x"></i></a>
-        </div>
+        <ul class="link-cont list">
+          <li class="link-cont__item">
+            <a class="link-cont__link link" href="#" target="_blank">
+              <i class="link-cont__icon fab fa-facebook-square fa-2x"></i>
+            </a>
+          </li>
+          <li class="link-cont__item">
+            <a class="link-cont__link link" href="#" target="_blank">
+              <i class="link-cont__icon fab fa-twitter-square fa-2x"></i>
+            </a>
+          </li>
+          <li class="link-cont__item">
+            <a class="link-cont__link link" href="#" target="_blank">
+              <i class="link-cont__icon fab fa-google-plus-square fa-2x"></i>
+            </a>
+          </li>
+          <li class="link-cont__item">
+            <a class="link-cont__link link" href="#" target="_blank">
+              <i class="link-cont__icon fab fa-pinterest-square fa-2x"></i>
+            </a>
+          </li>
+        </ul>
         <!-- Footer -->
         <footer class="footer">
           <address class="footer__text">
             HALOVIETNAM LTD<br />
             66, Dang Van ngu, Dong Da<br />
             Hanoi, Vietnam<br />
-            contact@halovietnam.com<br />
-            +844 35149182
+            <a class="footer__link footer__link--email link" href="mailto:contact@halovietnam.com">contact@halovietnam.com</a><br />
+            <a class="footer__link link" href="tel:+84435149182">+844 35149182</a>
           </address>
           <!-- Footer links -->
           <ul class="footer__list list">

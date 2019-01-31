@@ -1,8 +1,8 @@
 const nav = document.getElementById('nav');
 const navButton = document.getElementById('nav__button')
 const navList = document.getElementById('nav__list');
-const navItems = document.getElementsByClassName('nav__item');
-const toggleNavElems = document.getElementsByClassName('toggle-nav');
+const navItems = document.getElementsByClassName('js-nav__item');
+const toggleNavElems = document.getElementsByClassName('js-toggle-nav');
 const form = document.getElementById('form');
 const input = document.getElementById('form__input');
 
@@ -45,7 +45,7 @@ const shrinkNav = currPos => {
 
 // helper for startSlideshow:
 function Elements(className, slideIndex) {
-  this.className = className;
+  this.className = className.split('-').pop();
   this.list = document.getElementsByClassName(className);
   this.removeActiveClass = function() {
     for (let el of this.list) {
@@ -61,24 +61,82 @@ function Elements(className, slideIndex) {
 
 
 // startSlideshow:
-const slides = new Elements('slide');
-const dots = new Elements('indicator__dot');
+let slideshowTimeout;
+const slides = new Elements('js-slide');
+const dots = new Elements('js-indicator__dot');
 let slideIndex = 0;
 const startSlideshow = () => {
   slides.removeActiveClass();
   dots.removeActiveClass();
-  slideIndex += 1;
 
-  if (slideIndex > slides.list.length) {
-    slideIndex = 1;
+  if (slideIndex >= slides.list.length) {
+    slideIndex = 0;
   }
 
-  slides.addActiveClass(slideIndex-1);
-  dots.addActiveClass(slideIndex-1);
-  setTimeout(startSlideshow, 5000);
+  if (slideIndex < 0) {
+    slideIndex = 2;
+  }
+
+  slides.addActiveClass(slideIndex);
+  dots.addActiveClass(slideIndex);
+
+  slideIndex += 1;
+  slideshowTimeout = setTimeout(startSlideshow, 5000);
 };
 
 
+
+const dot_elems = dots.list;
+for (let dot of dot_elems) {
+  dot.addEventListener('click', () => {
+    if (slideshowTimeout) {
+      clearTimeout(slideshowTimeout);
+    }
+
+    slideIndex = parseInt(dot.dataset.slideIndex);
+    startSlideshow();
+  });
+}
+
+
+// callback functions for swiping:
+let xTouchStart,
+    yTouchStart;
+
+const handleTouchStart = evt => {
+  xTouchStart = evt.touches[0].clientX;
+  yTouchStart = evt.touches[0].clientY;
+};
+
+const handleTouchMove = evt => {
+  if (!xTouchStart) {
+    return;
+  }
+
+  let xTouchEnd = evt.touches[0].clientX;
+  let yTouchEnd = evt.touches[0].clientY;
+  let xDiff = xTouchStart - xTouchEnd;
+  let yDiff = yTouchStart - yTouchEnd;
+
+  // determine wether the user meant to scroll horizontal or vertical:
+  if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
+    if (slideshowTimeout) {
+      clearTimeout(slideshowTimeout);
+    }
+
+    if ( xDiff < 0 ) {
+      slideIndex -= 2;
+    }
+
+    startSlideshow();
+  }
+  xTouchStart = null;
+};
+
+
+const slideshow = document.getElementById('slideshow');
+slideshow.addEventListener('touchstart', handleTouchStart, false);
+slideshow.addEventListener('touchmove', handleTouchMove, false);
 
 for (let toggler of toggleNavElems) {
   toggler.addEventListener('click', () => {

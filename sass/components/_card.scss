@@ -1,6 +1,6 @@
 .card {
-  display: flex;
-  justify-content: flex-end;
+  @include flexbox;
+  @include justify-content(flex-end);
   width: 100%;
   margin-top: 40px;
   @media (min-width: $min-sm-1) {
@@ -15,10 +15,6 @@
 .card__icon-container {
   width: 25%;
   text-align: center;
-}
-
-.card__icon {
-  margin: auto;
 }
 
 .card__content {
