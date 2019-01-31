@@ -5,7 +5,7 @@
   width: 100%;
   height: 60px;
   background-color: $color-accent;
-  transition: top 0.5s;
+  @include transition(top 0.5s);
   @media (min-width: $min-sm-2) {
     @include horizontal-padding($percentage-sm);
     @include flexbox;

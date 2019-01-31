@@ -1,5 +1,9 @@
 *, *:before, *:after {
   box-sizing: inherit;
+  // attempt to fix the issue with disappearing content
+  &:not(html) {
+    -webkit-transform: translate3d(0, 0, 0);
+}
 }
 
 body, html {
@@ -41,5 +45,5 @@ html {
 .link {
   text-decoration: none;
   color: inherit;
-  transition: color ease 0.5s;
+  @include transition(color ease 0.5s);
 }
